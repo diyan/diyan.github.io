@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Recent Content on Notes by Alexey Diyan </title>
+      <generator uri="https://hugo.spf13.com">Hugo</generator>
+    <link>http://localhost:1313/index.xml/</link>
+    <language>en-us</language>
+    
+    
+    <updated>Sun, 04 Jan 2015 14:46:39 EET</updated>
+    
+    <item>
+      <title>Summary of passed 2014 year</title>
+      <link>http://localhost:1313/posts/2015/summary_of_passed_2014/</link>
+      <pubDate>Sun, 04 Jan 2015 14:46:39 EET</pubDate>
+      
+      <guid>http://localhost:1313/posts/2015/summary_of_passed_2014/</guid>
+      <description>
+
+&lt;p&gt;2014 year had passed and it would be nice to dump all things that I did that year.&lt;/p&gt;
+
+&lt;h2 id=&#34;toc_0&#34;&gt;Major&lt;/h2&gt;
+
+&lt;h3 id=&#34;toc_1&#34;&gt;Very first year with 0 days usage of Windows&lt;/h3&gt;
+
+&lt;p&gt;No usage at home, no usage at work. For a long time I was very interested in Linux and Open Source. During my work in .NET ecosystem I have a strong feeling that Open Source libraries and tools fit best to my way of getting job done.&lt;/p&gt;
+
+&lt;p&gt;In September 2011 I made a major shift from .NET/Windows to Python/Linux. I did spent 6 years on .NET platform and have not slightest doubts to do this big change.&lt;/p&gt;
+
+&lt;h3 id=&#34;toc_2&#34;&gt;From Ubuntu to Arch Linux&lt;/h3&gt;
+
+&lt;p&gt;For about one and a half year I&amp;rsquo;ve put a large amount of effort to learn main Ubuntu administration topics - coreutils, boot loaders, file systems, daemons, networking, logging, security, etc.&lt;/p&gt;
+
+&lt;p&gt;In parallel, a lot of desktop environment were tried and changed - Unity, Gnome 2, KDE 4, XFCE, LXDE and eventually I ended up on a very lightweight tiling window manager - &lt;a href=&#34;https://i3wm.org/&#34;&gt;i3wm&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Those two things and also a willing to have bleeding edge software led me to Arch Linux which I have started to use at home starting from October 2014.&lt;/p&gt;
+
+&lt;h2 id=&#34;toc_3&#34;&gt;Medium/Minor&lt;/h2&gt;
+
+&lt;p&gt;Other things are somewhat smaller, so I will just list them without any ordering.&lt;/p&gt;
+
+&lt;p&gt;Visited Crete and Thailand. I&amp;rsquo;m rather indifferent to traveling, but my wife is crazy about this. To make her happier I had to visit United Arab Emirates, Sri Lanka, Turkey, Poland, Czech Republic, Germany, Austria so far. :)&lt;/p&gt;
+
+&lt;p&gt;Got B1/B2 USA Visa which will be valid for next 10 years.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Docker user&lt;/strong&gt; since v0.4. Using it for software evaluation, integration testing, setting up dev environment (including boot2docker on Mac OS for one my colleague). Planning to start use it in production this year.&lt;/p&gt;
+
+&lt;p&gt;Become an advocate for &lt;strong&gt;structured logging&lt;/strong&gt; - &lt;a href=&#34;https://pypi.python.org/pypi/structlog&#34;&gt;structlog&lt;/a&gt;, &lt;a href=&#34;http://nxlog.org/&#34;&gt;nxlog&lt;/a&gt;, &lt;a href=&#34;http://logstash.net/&#34;&gt;logstash&lt;/a&gt;, &lt;a href=&#34;http://www.elasticsearch.org/overview/kibana/&#34;&gt;Kibana&lt;/a&gt; (Ruby version, then AngularJS). Now considering to change nxlog + Logstash into Mozilla&amp;rsquo;s &lt;a href=&#34;http://hekad.readthedocs.org/&#34;&gt;Heka&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Become a &lt;strong&gt;metrics junky&lt;/strong&gt; - our &lt;a href=&#34;http://graphite.wikidot.com/&#34;&gt;Graphite&lt;/a&gt; installation contains metrics from application (&lt;a href=&#34;https://pypi.python.org/pypi/scales&#34;&gt;scales&lt;/a&gt; then &lt;a href=&#34;https://pypi.python.org/pypi/metrology&#34;&gt;metrology&lt;/a&gt;), Nagios (&lt;a href=&#34;https://github.com/shawn-sterling/graphios&#34;&gt;graphios&lt;/a&gt;), &lt;a href=&#34;http://collectd.org/&#34;&gt;CollectD&lt;/a&gt;, Amazon CloudWatch (homegrown script). Now planning to switch from Graphite to &lt;a href=&#34;http://influxdb.org/&#34;&gt;InfluxDB&lt;/a&gt; and &lt;a href=&#34;http://grafana.org/&#34;&gt;Grafana&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Did learn how to write LSB compatible init.d scripts and then happily threw away &lt;a href=&#34;(http://refspecs.linuxbase.org/LSB_3.1.0/LSB-Core-generic/LSB-Core-generic/iniscrptact.html&#34;&gt;all&lt;/a&gt; that &lt;a href=&#34;http://refspecs.linuxbase.org/LSB_3.1.0/LSB-Core-generic/LSB-Core-generic/iniscrptfunc.html&#34;&gt;knowledge&lt;/a&gt; and learn &lt;a href=&#34;http://upstart.ubuntu.com/cookbook/&#34;&gt;Upstart&lt;/a&gt;. I would rather support two scripts for Upstart and SystemD instead of returning to the Middle Ages. Learning SystemD.&lt;/p&gt;
+
+&lt;p&gt;Started track all configs for nginx, upstart, logrotate, gunicorn, uwsgi, heka, git deploy/develop hooks in Git repository next to code. They are deployed on each web node via post-update/post-merge git hooks. Hopefully I will start use &lt;a href=&#34;http://www.ansible.com/&#34;&gt;Ansible&lt;/a&gt; for that at some point.&lt;/p&gt;
+
+&lt;p&gt;Learn Nginx a bit - compression, etags, satic file caching with and w/o expire validation, PAM/LDAP integration, ACLs.&lt;/p&gt;
+
+&lt;p&gt;Invested some time to learn Golang, keeping most attention on a philosophy benind this language and ecosystem in general. Right now it&amp;rsquo;s mostly theoretical knowledge and hopefully this year I would start some project in Golang.&lt;/p&gt;
+
+&lt;p&gt;My chronic test-all-the-things infection became worse this year, so I&amp;rsquo;ve adopted couple practices:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;assert_json_equal function that displays unified diff along with AssertionError&lt;/li&gt;
+&lt;li&gt;In memory Gevent-SocketIO server inspired on this &lt;a href=&#34;https://github.com/miguelgrinberg/Flask-SocketIO/blob/master/flask_socketio/test_client.py&#34;&gt;implementation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Asked my teammate to develop in process RiakClientMock that supports get/set and 2i lookups (unfortunately, later we dropped that code due to switch on Cassandra)&lt;/li&gt;
+&lt;li&gt;Came up with _cassandra_process (build/start Docker container with real Cassandra node once per test session) and cassandra_mock (truncate all tables before each test function/method) py.test fixtures&lt;/li&gt;
+&lt;li&gt;Started use in process &lt;a href=&#34;https://pypi.python.org/pypi/mockredispy&#34;&gt;mockredispy&lt;/a&gt; instead of real redis instance to speed up tests (unfortunately it does not emulate pub/sub but we are planning to change that)&lt;/li&gt;
+&lt;li&gt;Evaluated approach with Dockerized Selenium Server with PhantomJS, SlimerJS, Firefox and Chrome for running frontend tests (planning to integrate that into dev our process in 2015)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Start using a bunch of nice Python libraries/tools:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://pypi.python.org/pypi/itertoolz&#34;&gt;itertoolz&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://pypi.python.org/pypi/jsonschema&#34;&gt;jsonschema&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://pypi.python.org/pypi/wsgicors&#34;&gt;wsgicors&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://pypi.python.org/pypi/simpleflake&#34;&gt;simpleflake&lt;/a&gt; (instead of uuid4)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://pypi.python.org/pypi/suds-jurko/0.6&#34;&gt;suds-jurko&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://pypi.python.org/pypi/gevent-socketio&#34;&gt;gevent-socketio&lt;/a&gt; (not quite happy with it and PR with 4 fixed bugs still without any feedback)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://pypi.python.org/pypi/Flask-Principal&#34;&gt;flask_principal&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://pypi.python.org/pypi/twilio&#34;&gt;twilio&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://pypi.python.org/pypi/apns&#34;&gt;apns&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://pypi.python.org/pypi/unicodecsv/0.9.4&#34;&gt;unicodecsv&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://pypi.python.org/pypi/python-geoip&#34;&gt;python_geoip&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://pypi.python.org/pypi/text-unidecode&#34;&gt;text-unidecode&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://testutils.org/multi-mechanize/&#34;&gt;multi_mechanize&lt;/a&gt; (instead of &lt;a href=&#34;http://jmeter.apache.org/&#34;&gt;Apache JMeter&lt;/a&gt;, &lt;a href=&#34;http://locust.io/&#34;&gt;Locust&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://pypi.python.org/pypi/cqlengine&#34;&gt;cqlengine&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Did a release of &lt;a href=&#34;https://pypi.python.org/pypi/pywinrm&#34;&gt;pywinrm&lt;/a&gt; v0.0.3. My pesonal project is moving forward - I was happy to see a code contribution from about 7 developers. pywinrm has about 2000-2500 monthly downloads on PyPI and it was &lt;a href=&#34;http://docs.ansible.com/intro_windows.html&#34;&gt;included&lt;/a&gt; into Ansible project.&lt;/p&gt;
+
+&lt;p&gt;Got acquainted with several Virtual DOM and/or FRP frameworks - &lt;a href=&#34;http://vuejs.org/&#34;&gt;VueJS&lt;/a&gt;, &lt;a href=&#34;http://facebook.github.io/react/&#34;&gt;ReactJS&lt;/a&gt;, &lt;a href=&#34;http://lhorie.github.io/mithril/&#34;&gt;Mithrill&lt;/a&gt;, &lt;a href=&#34;https://github.com/Raynos/mercury&#34;&gt;Mercury&lt;/a&gt;, &lt;a href=&#34;https://github.com/Matt-Esch/virtual-dom&#34;&gt;Virtual-DOM&lt;/a&gt;. I hate JavaScript but planning to write some code in ECMAScript 6 with one of those frameworks (most likely Mercury). Even if I&amp;rsquo;m pure backend developer I&amp;rsquo;m prefer keeping fresh skills in JavaScript at least on a very basic level.&lt;/p&gt;
+
+&lt;p&gt;Used awesome &lt;a href=&#34;http://www.percona.com/software/percona-toolkit&#34;&gt;Percona Tookit&lt;/a&gt; (pt-archiver, pt-config-diff, pt-mysql-summary, pt-online-schema-change, pt-table-sync) for managing pretty big MySQL servers that contains about 600GB data.&lt;/p&gt;
+
+&lt;p&gt;Dived into a world of distributed databases/storages - &lt;a href=&#34;http://basho.com/riak/&#34;&gt;Riak&lt;/a&gt;, &lt;a href=&#34;http://cassandra.apache.org/&#34;&gt;Cassandra&lt;/a&gt;, &lt;a href=&#34;http://www.couchbase.com/&#34;&gt;Couchbase&lt;/a&gt;, &lt;a href=&#34;http://bigcouch.cloudant.com/&#34;&gt;BigCouch&lt;/a&gt;, &lt;a href=&#34;http://hadoop.apache.org/&#34;&gt;Hadoop&lt;/a&gt;, &lt;a href=&#34;http://hbase.apache.org/&#34;&gt;HBase&lt;/a&gt;, &lt;a href=&#34;https://speakerdeck.com/vanstee/convergent-replicated-data-types&#34;&gt;CRDT&lt;/a&gt;, &lt;a href=&#34;http://en.wikipedia.org/wiki/CAP_theorem&#34;&gt;CAP theorem&lt;/a&gt;, &lt;a href=&#34;http://research.microsoft.com/en-us/um/people/lamport/pubs/lamport-paxos.pdf&#34;&gt;Paxos&lt;/a&gt;, &lt;a href=&#34;http://raftconsensus.github.io/&#34;&gt;Raft&lt;/a&gt; and all that staff. Most time I have spent with Riak, Cassandra but ended up with Cassandra for my current project. Also I did tried &lt;a href=&#34;http://prestodb.io/&#34;&gt;Presto&lt;/a&gt;/Cassandra and planning to work with &lt;a href=&#34;http://www.elasticsearch.org/&#34;&gt;Elasticsearch&lt;/a&gt;. &lt;a href=&#34;http://spark.apache.org/&#34;&gt;Spark&lt;/a&gt;/&lt;a href=&#34;http://databricks.com/blog/2014/07/01/shark-spark-sql-hive-on-spark-and-the-future-of-sql-on-spark.html&#34;&gt;Shark&lt;/a&gt;/Cassandra, &lt;a href=&#34;https://spark.apache.org/sql/&#34;&gt;Spark SQL&lt;/a&gt;/Cassandra this year.&lt;/p&gt;
+
+&lt;p&gt;Also I was involved into setting up &lt;a href=&#34;https://www.pcisecuritystandards.org/security_standards/&#34;&gt;PCI DSS&lt;/a&gt; compliant environment. During that time I have learn a lot best practices on security/traceability/configration management/monitoring that could be applied to any project. Amout of resources that I&amp;rsquo;ve collected was pretty big, so I published everything on &lt;a href=&#34;https://gist.github.com/diyan/c35c0574d200ac3a36eb&#34;&gt;Gist&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;2014 was awesome year with a lot of interesting tasks and technical chalenges and I&amp;rsquo;m eager to try new things that will come in this 2015 year.&lt;/p&gt;
+
+&lt;p&gt;Happy New Year!&lt;/p&gt;
+
+&lt;p&gt;(better later than never :)&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

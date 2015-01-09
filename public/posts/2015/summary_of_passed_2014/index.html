@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+    <head>
+        
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+
+        <title>Summary of passed 2014 year &middot; Notes by Alexey Diyan</title>
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' type='text/css'>
+        <link rel="stylesheet" href="http://localhost:1313/libraries/normalize.3.0.1.css" />
+        <link rel="stylesheet" href="http://localhost:1313/css/liquorice.css" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-144-precomposed.png" sizes="144x144" />
+        <link rel="alternate" href="" type="application/rss+xml" title="Notes by Alexey Diyan" />
+    </head>
+    <body class="li-body">
+
+<header class="li-page-header">
+    <div class="container">
+        <div class="row">
+            <div class="sixteen columns">
+                <div class="li-brand li-left">
+                <a href="http://localhost:1313">Notes by Alexey Diyan</a></div>
+                <div class="li-menu li-right">
+                    <span class="li-menu-icon" onclick="javascript:toggle('menu');">&#9776;</span>
+                    <ul id="menu2" class="li-menu-items">
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="sixteen columns">
+                <ul id="menu" class="li-menu-items li-menu-mobile">
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="sixteen columns">
+                <article class="li-article">
+                    <header class="li-article-header">
+                        <h1 class="li-article-title">Summary of passed 2014 year</h1>
+                        <time class="li-article-date">Sunday, January 4, 2015</time>
+                    </header>
+                    <section>
+                        
+
+<p>2014 year had passed and it would be nice to dump all things that I did that year.</p>
+
+<h2 id="toc_0">Major</h2>
+
+<h3 id="toc_1">Very first year with 0 days usage of Windows</h3>
+
+<p>No usage at home, no usage at work. For a long time I was very interested in Linux and Open Source. During my work in .NET ecosystem I have a strong feeling that Open Source libraries and tools fit best to my way of getting job done.</p>
+
+<p>In September 2011 I made a major shift from .NET/Windows to Python/Linux. I did spent 6 years on .NET platform and have not slightest doubts to do this big change.</p>
+
+<h3 id="toc_2">From Ubuntu to Arch Linux</h3>
+
+<p>For about one and a half year I&rsquo;ve put a large amount of effort to learn main Ubuntu administration topics - coreutils, boot loaders, file systems, daemons, networking, logging, security, etc.</p>
+
+<p>In parallel, a lot of desktop environment were tried and changed - Unity, Gnome 2, KDE 4, XFCE, LXDE and eventually I ended up on a very lightweight tiling window manager - <a href="https://i3wm.org/">i3wm</a>.</p>
+
+<p>Those two things and also a willing to have bleeding edge software led me to Arch Linux which I have started to use at home starting from October 2014.</p>
+
+<h2 id="toc_3">Medium/Minor</h2>
+
+<p>Other things are somewhat smaller, so I will just list them without any ordering.</p>
+
+<p>Visited Crete and Thailand. I&rsquo;m rather indifferent to traveling, but my wife is crazy about this. To make her happier I had to visit United Arab Emirates, Sri Lanka, Turkey, Poland, Czech Republic, Germany, Austria so far. :)</p>
+
+<p>Got B1/B2 USA Visa which will be valid for next 10 years.</p>
+
+<p><strong>Docker user</strong> since v0.4. Using it for software evaluation, integration testing, setting up dev environment (including boot2docker on Mac OS for one my colleague). Planning to start use it in production this year.</p>
+
+<p>Become an advocate for <strong>structured logging</strong> - <a href="https://pypi.python.org/pypi/structlog">structlog</a>, <a href="http://nxlog.org/">nxlog</a>, <a href="http://logstash.net/">logstash</a>, <a href="http://www.elasticsearch.org/overview/kibana/">Kibana</a> (Ruby version, then AngularJS). Now considering to change nxlog + Logstash into Mozilla&rsquo;s <a href="http://hekad.readthedocs.org/">Heka</a>.</p>
+
+<p>Become a <strong>metrics junky</strong> - our <a href="http://graphite.wikidot.com/">Graphite</a> installation contains metrics from application (<a href="https://pypi.python.org/pypi/scales">scales</a> then <a href="https://pypi.python.org/pypi/metrology">metrology</a>), Nagios (<a href="https://github.com/shawn-sterling/graphios">graphios</a>), <a href="http://collectd.org/">CollectD</a>, Amazon CloudWatch (homegrown script). Now planning to switch from Graphite to <a href="http://influxdb.org/">InfluxDB</a> and <a href="http://grafana.org/">Grafana</a>.</p>
+
+<p>Did learn how to write LSB compatible init.d scripts and then happily threw away <a href="(http://refspecs.linuxbase.org/LSB_3.1.0/LSB-Core-generic/LSB-Core-generic/iniscrptact.html">all</a> that <a href="http://refspecs.linuxbase.org/LSB_3.1.0/LSB-Core-generic/LSB-Core-generic/iniscrptfunc.html">knowledge</a> and learn <a href="http://upstart.ubuntu.com/cookbook/">Upstart</a>. I would rather support two scripts for Upstart and SystemD instead of returning to the Middle Ages. Learning SystemD.</p>
+
+<p>Started track all configs for nginx, upstart, logrotate, gunicorn, uwsgi, heka, git deploy/develop hooks in Git repository next to code. They are deployed on each web node via post-update/post-merge git hooks. Hopefully I will start use <a href="http://www.ansible.com/">Ansible</a> for that at some point.</p>
+
+<p>Learn Nginx a bit - compression, etags, satic file caching with and w/o expire validation, PAM/LDAP integration, ACLs.</p>
+
+<p>Invested some time to learn Golang, keeping most attention on a philosophy benind this language and ecosystem in general. Right now it&rsquo;s mostly theoretical knowledge and hopefully this year I would start some project in Golang.</p>
+
+<p>My chronic test-all-the-things infection became worse this year, so I&rsquo;ve adopted couple practices:</p>
+
+<ul>
+<li>assert_json_equal function that displays unified diff along with AssertionError</li>
+<li>In memory Gevent-SocketIO server inspired on this <a href="https://github.com/miguelgrinberg/Flask-SocketIO/blob/master/flask_socketio/test_client.py">implementation</a></li>
+<li>Asked my teammate to develop in process RiakClientMock that supports get/set and 2i lookups (unfortunately, later we dropped that code due to switch on Cassandra)</li>
+<li>Came up with _cassandra_process (build/start Docker container with real Cassandra node once per test session) and cassandra_mock (truncate all tables before each test function/method) py.test fixtures</li>
+<li>Started use in process <a href="https://pypi.python.org/pypi/mockredispy">mockredispy</a> instead of real redis instance to speed up tests (unfortunately it does not emulate pub/sub but we are planning to change that)</li>
+<li>Evaluated approach with Dockerized Selenium Server with PhantomJS, SlimerJS, Firefox and Chrome for running frontend tests (planning to integrate that into dev our process in 2015)</li>
+</ul>
+
+<p>Start using a bunch of nice Python libraries/tools:</p>
+
+<ul>
+<li><a href="https://pypi.python.org/pypi/itertoolz">itertoolz</a></li>
+<li><a href="https://pypi.python.org/pypi/jsonschema">jsonschema</a></li>
+<li><a href="https://pypi.python.org/pypi/wsgicors">wsgicors</a></li>
+<li><a href="https://pypi.python.org/pypi/simpleflake">simpleflake</a> (instead of uuid4)</li>
+<li><a href="https://pypi.python.org/pypi/suds-jurko/0.6">suds-jurko</a></li>
+<li><a href="https://pypi.python.org/pypi/gevent-socketio">gevent-socketio</a> (not quite happy with it and PR with 4 fixed bugs still without any feedback)</li>
+<li><a href="https://pypi.python.org/pypi/Flask-Principal">flask_principal</a></li>
+<li><a href="https://pypi.python.org/pypi/twilio">twilio</a></li>
+<li><a href="https://pypi.python.org/pypi/apns">apns</a></li>
+<li><a href="https://pypi.python.org/pypi/unicodecsv/0.9.4">unicodecsv</a></li>
+<li><a href="https://pypi.python.org/pypi/python-geoip">python_geoip</a></li>
+<li><a href="https://pypi.python.org/pypi/text-unidecode">text-unidecode</a></li>
+<li><a href="http://testutils.org/multi-mechanize/">multi_mechanize</a> (instead of <a href="http://jmeter.apache.org/">Apache JMeter</a>, <a href="http://locust.io/">Locust</a>)</li>
+<li><a href="https://pypi.python.org/pypi/cqlengine">cqlengine</a></li>
+</ul>
+
+<p>Did a release of <a href="https://pypi.python.org/pypi/pywinrm">pywinrm</a> v0.0.3. My pesonal project is moving forward - I was happy to see a code contribution from about 7 developers. pywinrm has about 2000-2500 monthly downloads on PyPI and it was <a href="http://docs.ansible.com/intro_windows.html">included</a> into Ansible project.</p>
+
+<p>Got acquainted with several Virtual DOM and/or FRP frameworks - <a href="http://vuejs.org/">VueJS</a>, <a href="http://facebook.github.io/react/">ReactJS</a>, <a href="http://lhorie.github.io/mithril/">Mithrill</a>, <a href="https://github.com/Raynos/mercury">Mercury</a>, <a href="https://github.com/Matt-Esch/virtual-dom">Virtual-DOM</a>. I hate JavaScript but planning to write some code in ECMAScript 6 with one of those frameworks (most likely Mercury). Even if I&rsquo;m pure backend developer I&rsquo;m prefer keeping fresh skills in JavaScript at least on a very basic level.</p>
+
+<p>Used awesome <a href="http://www.percona.com/software/percona-toolkit">Percona Tookit</a> (pt-archiver, pt-config-diff, pt-mysql-summary, pt-online-schema-change, pt-table-sync) for managing pretty big MySQL servers that contains about 600GB data.</p>
+
+<p>Dived into a world of distributed databases/storages - <a href="http://basho.com/riak/">Riak</a>, <a href="http://cassandra.apache.org/">Cassandra</a>, <a href="http://www.couchbase.com/">Couchbase</a>, <a href="http://bigcouch.cloudant.com/">BigCouch</a>, <a href="http://hadoop.apache.org/">Hadoop</a>, <a href="http://hbase.apache.org/">HBase</a>, <a href="https://speakerdeck.com/vanstee/convergent-replicated-data-types">CRDT</a>, <a href="http://en.wikipedia.org/wiki/CAP_theorem">CAP theorem</a>, <a href="http://research.microsoft.com/en-us/um/people/lamport/pubs/lamport-paxos.pdf">Paxos</a>, <a href="http://raftconsensus.github.io/">Raft</a> and all that staff. Most time I have spent with Riak, Cassandra but ended up with Cassandra for my current project. Also I did tried <a href="http://prestodb.io/">Presto</a>/Cassandra and planning to work with <a href="http://www.elasticsearch.org/">Elasticsearch</a>. <a href="http://spark.apache.org/">Spark</a>/<a href="http://databricks.com/blog/2014/07/01/shark-spark-sql-hive-on-spark-and-the-future-of-sql-on-spark.html">Shark</a>/Cassandra, <a href="https://spark.apache.org/sql/">Spark SQL</a>/Cassandra this year.</p>
+
+<p>Also I was involved into setting up <a href="https://www.pcisecuritystandards.org/security_standards/">PCI DSS</a> compliant environment. During that time I have learn a lot best practices on security/traceability/configration management/monitoring that could be applied to any project. Amout of resources that I&rsquo;ve collected was pretty big, so I published everything on <a href="https://gist.github.com/diyan/c35c0574d200ac3a36eb">Gist</a>.</p>
+
+<p>2014 was awesome year with a lot of interesting tasks and technical chalenges and I&rsquo;m eager to try new things that will come in this 2015 year.</p>
+
+<p>Happy New Year!</p>
+
+<p>(better later than never :)</p>
+
+                    </section>
+                </article>
+            </div>
+        </div>
+
+        <div class="row li-author">
+    <div class="sixteen columns">
+        Written by <strong></strong>
+    </div>
+</div>
+
+
+        <div class="row li-pagination">
+            <div class="eight columns">
+                <div class="li-pagination-previous">
+                    
+                        &nbsp;
+                    
+                </div>
+            </div>
+            <div class="eight columns">
+                <div class="li-pagination-next">
+                    
+                        &nbsp;
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+<footer class="li-page-footer">
+    <div class="container">
+        <div class="row">
+            <div class="sixteen columns">
+                <div class="li-page-footer-legal">
+                    &copy; 2015. All rights reserved. 
+                </div>
+                <div class="li-page-footer-theme">
+                    <span class=""><a href="http://github.com/eliasson/liquorice/">liquorice</a> is a theme for <a href="http://hugo.spf13.com">hugo</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script type="text/javascript">
+    <!--
+    function toggle(id) {
+        var e = document.getElementById(id);
+        e.style.display == 'block' ? e.style.display = 'none' : e.style.display = 'block';
+    }
+    
+    </script>
+    <script type="text/javascript">
+    <!--
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', ""]);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    -->
+    </script>
+    <script>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>
+
