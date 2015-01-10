@@ -3,7 +3,7 @@
   <channel>
       <title>Recent Content on Notes by Alexey Diyan </title>
       <generator uri="https://hugo.spf13.com">Hugo</generator>
-    <link>https://diyan.github.io/blog/index.xml/</link>
+    <link>https://diyan.github.io/index.xml/</link>
     <language>en-us</language>
     
     
@@ -11,10 +11,10 @@
     
     <item>
       <title>Summary of passed 2014 year</title>
-      <link>https://diyan.github.io/blog/posts/2015/summary_of_passed_2014/</link>
+      <link>https://diyan.github.io/posts/2015/summary_of_passed_2014/</link>
       <pubDate>Sun, 04 Jan 2015 14:46:39 EET</pubDate>
       
-      <guid>https://diyan.github.io/blog/posts/2015/summary_of_passed_2014/</guid>
+      <guid>https://diyan.github.io/posts/2015/summary_of_passed_2014/</guid>
       <description>
 
 &lt;p&gt;2014 year had passed and it would be nice to dump all things that I did that year.&lt;/p&gt;
