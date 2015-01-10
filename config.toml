@@ -1,6 +1,7 @@
-baseurl = "https://diyan.github.io/"
-languageCode = "en-us"
 title = "Notes by Alexey Diyan"
+baseurl = "https://diyan.github.io/blog/"
+languageCode = "en-us"
+publishdir = "blog"
 
 [params]
 gaCode = "UA-1258112-3"
