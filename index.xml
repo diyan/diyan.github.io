@@ -7,7 +7,67 @@
     <language>en-us</language>
     
     
-    <updated>Sun, 04 Jan 2015 14:46:39 EET</updated>
+    <updated>Thu, 15 Jan 2015 00:17:33 EET</updated>
+    
+    <item>
+      <title>On Virtual DOM, FRP, Hyperscript</title>
+      <link>https://diyan.github.io/posts/2015/js_virtual_dom_and_frp/</link>
+      <pubDate>Thu, 15 Jan 2015 00:17:33 EET</pubDate>
+      
+      <guid>https://diyan.github.io/posts/2015/js_virtual_dom_and_frp/</guid>
+      <description>&lt;p&gt;In the late 2014 I decided to take a look at bleeding edge JavaScript frameworks.&lt;/p&gt;
+
+&lt;p&gt;From time to time I&amp;rsquo;m hearing new buzzwords and maybe the most often was ReactJS, so I decided to take a short look on a few modern frameworks and libraries.&lt;/p&gt;
+
+&lt;p&gt;It worth mention that one thing is really conserns we in ReactJS. It&amp;rsquo;s JSX - a mix of JavaScript and HTML, the new language.&lt;/p&gt;
+
+&lt;p&gt;So, I was really happy to see a &lt;a href=&#34;https://github.com/dominictarr/hyperscript&#34;&gt;Hyperscript&lt;/a&gt; - nice JavaScript DSL for building HTML documents. It uses just regular JavaScript, no fancy additions.&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s clear what kind HTML it will produce and we have no issues with text editors, code analysers, parsers and other dev tools.&lt;/p&gt;
+
+&lt;p&gt;I need to be sure that Hyperscript would not isolate me in any way, so I&amp;rsquo;ve searched a number of libraries which covers all common use cases that you may encounter:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.npmjs.com/package/react-hyperscript&#34;&gt;react-hyperscript&lt;/a&gt; - to use Hyperscript syntax in ReactJS app&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.npmjs.com/package/virtual-dom-stringify&#34;&gt;virtual-dom-stringify&lt;/a&gt; - to turn a DOM node into a virtual-dom tree&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.npmjs.com/package/vdom-virtualize&#34;&gt;vdom-virtualize&lt;/a&gt; - to turn a DOM node / HTML string into a virtual-dom tree&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.npmjs.com/package/virtual-dom-jsx&#34;&gt;virtual-dom-jsx&lt;/a&gt; - transpiler from JSX to virtual-hyperscript code&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.npmjs.com/package/vtree-select&#34;&gt;vtree-select&lt;/a&gt; - to use CSS selector with virtual-dom nodes&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Thankfully to ReactJS I&amp;rsquo;ve got familiar with Virtual DOM concept. Also I&amp;rsquo;m really glad that Facebook&amp;rsquo;s ReactJS moving forward popularity of Functional Reactive Programming (FRP) paradigm.&lt;/p&gt;
+
+&lt;p&gt;Most likely I could miss a number JavaScript libraries that exposes Virtual DOM and/or Hyperscript DSL but what I&amp;rsquo;ve found are following:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Matt-Esch/virtual-dom/blob/master/virtual-hyperscript/README.md&#34;&gt;Virtual DOM&lt;/a&gt; - base library that provides Virtual DOM API and Hyperscript DSL for more high level frameworks&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://lhorie.github.io/mithril/index.html&#34;&gt;Mithril&lt;/a&gt; - IE6+, no deps, Virtual DOM concept. 2434 stars, 183 forks on GitHub&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Raynos/mercury&#34;&gt;Mercury&lt;/a&gt; -  IE9+, based on virtual-dom lib and observ-struct. FRP. 1128 stars, 49 forks&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://vuejs.org/&#34;&gt;VueJS&lt;/a&gt; - IE9+, MVVM, Virtual DOM concept. 3327 stars, 268 forks&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/staltz/cycle&#34;&gt;CycleJS&lt;/a&gt; - browser compatibility unclear, based on virtual-dom and RxJS libs. FRP. 387 stars, 9 forks&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Mithrill looks attractive if you need a framework with minimal footprint, wide browser support and traditional approach for templating.&lt;/p&gt;
+
+&lt;p&gt;At the same time it&amp;rsquo;s data binding looks a bit weird. Not sure but this could be a trade off for deciding to support IE6 (and saying &amp;ldquo;no&amp;rdquo; to JavaScript getters/setters).&lt;/p&gt;
+
+&lt;p&gt;Mercury is the most interesting framework for me. It contains a number of interesting concepts that I know in theory but eager to try in practice.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/Raynos/mercury/blob/master/docs/modules/README.md&#34;&gt;Here&lt;/a&gt; you can find a very good documentation that explains a lot implementation details, I would reccomend you pay attention on vdom-thunk, main-loop and time-travel.&lt;/p&gt;
+
+&lt;p&gt;In samples you can find an &lt;a href=&#34;https://github.com/Raynos/mercury/blob/2048-wip/examples/2048/state.js#L26-L34&#34;&gt;annoying&lt;/a&gt; mapping from plain JavaScript object to Mercury&amp;rsquo;s observ. Unfortunately this is something you have to deal with. I remember my happines when I saw how KnockoutJS opened FRP to the JavaScript world and then my sadness after I wrote a lot of boilerplate code that maps plain objects to observables.&lt;/p&gt;
+
+&lt;p&gt;Fortunately there is &lt;a href=&#34;https://github.com/maxogden/observify&#34;&gt;oservify&lt;/a&gt; - an automapper from plain JavaScript objects to Mercury&amp;rsquo;s observ.&lt;/p&gt;
+
+&lt;p&gt;VueJS is a way to go if you need a Virtual DOM-powered version of AngularJS. This frameworks is rapidly gaining stars/forks on GitHub and soon we may see it in line with other top JavaScript frameworks.&lt;/p&gt;
+
+&lt;p&gt;CycleJS does not have too much popularity now and not likely it will. But author did a very important step - it included full-blown general purpose library RxJS that exposes all power of FRP / Reactive Programming to application framework.&lt;/p&gt;
+
+&lt;p&gt;At the end here is a link to &lt;a href=&#34;http://jsperf.com/angular-vs-knockout-vs-ember/401&#34;&gt;benchmark&lt;/a&gt; between popular JavaScript frameworks and hopefully you&amp;rsquo;ll see how Virtual DOM-based frameworks kicks ass to all others.&lt;/p&gt;
+
+&lt;p&gt;Thats all. Looking forward for your comments on Google+.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Summary of passed 2014 year</title>

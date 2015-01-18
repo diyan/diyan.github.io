@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+    <head>
+        
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+
+        <title>On Virtual DOM, FRP, Hyperscript &middot; Notes by Alexey Diyan</title>
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' type='text/css'>
+        <link rel="stylesheet" href="https://diyan.github.io/libraries/normalize.3.0.1.css" />
+        <link rel="stylesheet" href="https://diyan.github.io/css/liquorice.css" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-144-precomposed.png" sizes="144x144" />
+        <link rel="alternate" href="" type="application/rss+xml" title="Notes by Alexey Diyan" />
+    </head>
+    <body class="li-body">
+
+<header class="li-page-header">
+    <div class="container">
+        <div class="row">
+            <div class="sixteen columns">
+                <div class="li-brand li-left">
+                <a href="https://diyan.github.io">Notes by Alexey Diyan</a></div>
+                <div class="li-menu li-right">
+                    <span class="li-menu-icon" onclick="javascript:toggle('menu');">&#9776;</span>
+                    <ul id="menu2" class="li-menu-items">
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="sixteen columns">
+                <ul id="menu" class="li-menu-items li-menu-mobile">
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="sixteen columns">
+                <article class="li-article">
+                    <header class="li-article-header">
+                        <h1 class="li-article-title">On Virtual DOM, FRP, Hyperscript</h1>
+                        <time class="li-article-date">Thursday, January 15, 2015</time>
+                    </header>
+                    <section>
+                        <p>In the late 2014 I decided to take a look at bleeding edge JavaScript frameworks.</p>
+
+<p>From time to time I&rsquo;m hearing new buzzwords and maybe the most often was ReactJS, so I decided to take a short look on a few modern frameworks and libraries.</p>
+
+<p>It worth mention that one thing is really conserns we in ReactJS. It&rsquo;s JSX - a mix of JavaScript and HTML, the new language.</p>
+
+<p>So, I was really happy to see a <a href="https://github.com/dominictarr/hyperscript">Hyperscript</a> - nice JavaScript DSL for building HTML documents. It uses just regular JavaScript, no fancy additions.</p>
+
+<p>It&rsquo;s clear what kind HTML it will produce and we have no issues with text editors, code analysers, parsers and other dev tools.</p>
+
+<p>I need to be sure that Hyperscript would not isolate me in any way, so I&rsquo;ve searched a number of libraries which covers all common use cases that you may encounter:</p>
+
+<ul>
+<li><a href="https://www.npmjs.com/package/react-hyperscript">react-hyperscript</a> - to use Hyperscript syntax in ReactJS app</li>
+<li><a href="https://www.npmjs.com/package/virtual-dom-stringify">virtual-dom-stringify</a> - to turn a DOM node into a virtual-dom tree</li>
+<li><a href="https://www.npmjs.com/package/vdom-virtualize">vdom-virtualize</a> - to turn a DOM node / HTML string into a virtual-dom tree</li>
+<li><a href="https://www.npmjs.com/package/virtual-dom-jsx">virtual-dom-jsx</a> - transpiler from JSX to virtual-hyperscript code</li>
+<li><a href="https://www.npmjs.com/package/vtree-select">vtree-select</a> - to use CSS selector with virtual-dom nodes</li>
+</ul>
+
+<p>Thankfully to ReactJS I&rsquo;ve got familiar with Virtual DOM concept. Also I&rsquo;m really glad that Facebook&rsquo;s ReactJS moving forward popularity of Functional Reactive Programming (FRP) paradigm.</p>
+
+<p>Most likely I could miss a number JavaScript libraries that exposes Virtual DOM and/or Hyperscript DSL but what I&rsquo;ve found are following:</p>
+
+<ul>
+<li><a href="https://github.com/Matt-Esch/virtual-dom/blob/master/virtual-hyperscript/README.md">Virtual DOM</a> - base library that provides Virtual DOM API and Hyperscript DSL for more high level frameworks</li>
+<li><a href="http://lhorie.github.io/mithril/index.html">Mithril</a> - IE6+, no deps, Virtual DOM concept. 2434 stars, 183 forks on GitHub</li>
+<li><a href="https://github.com/Raynos/mercury">Mercury</a> -  IE9+, based on virtual-dom lib and observ-struct. FRP. 1128 stars, 49 forks</li>
+<li><a href="http://vuejs.org/">VueJS</a> - IE9+, MVVM, Virtual DOM concept. 3327 stars, 268 forks</li>
+<li><a href="https://github.com/staltz/cycle">CycleJS</a> - browser compatibility unclear, based on virtual-dom and RxJS libs. FRP. 387 stars, 9 forks</li>
+</ul>
+
+<p>Mithrill looks attractive if you need a framework with minimal footprint, wide browser support and traditional approach for templating.</p>
+
+<p>At the same time it&rsquo;s data binding looks a bit weird. Not sure but this could be a trade off for deciding to support IE6 (and saying &ldquo;no&rdquo; to JavaScript getters/setters).</p>
+
+<p>Mercury is the most interesting framework for me. It contains a number of interesting concepts that I know in theory but eager to try in practice.</p>
+
+<p><a href="https://github.com/Raynos/mercury/blob/master/docs/modules/README.md">Here</a> you can find a very good documentation that explains a lot implementation details, I would reccomend you pay attention on vdom-thunk, main-loop and time-travel.</p>
+
+<p>In samples you can find an <a href="https://github.com/Raynos/mercury/blob/2048-wip/examples/2048/state.js#L26-L34">annoying</a> mapping from plain JavaScript object to Mercury&rsquo;s observ. Unfortunately this is something you have to deal with. I remember my happines when I saw how KnockoutJS opened FRP to the JavaScript world and then my sadness after I wrote a lot of boilerplate code that maps plain objects to observables.</p>
+
+<p>Fortunately there is <a href="https://github.com/maxogden/observify">oservify</a> - an automapper from plain JavaScript objects to Mercury&rsquo;s observ.</p>
+
+<p>VueJS is a way to go if you need a Virtual DOM-powered version of AngularJS. This frameworks is rapidly gaining stars/forks on GitHub and soon we may see it in line with other top JavaScript frameworks.</p>
+
+<p>CycleJS does not have too much popularity now and not likely it will. But author did a very important step - it included full-blown general purpose library RxJS that exposes all power of FRP / Reactive Programming to application framework.</p>
+
+<p>At the end here is a link to <a href="http://jsperf.com/angular-vs-knockout-vs-ember/401">benchmark</a> between popular JavaScript frameworks and hopefully you&rsquo;ll see how Virtual DOM-based frameworks kicks ass to all others.</p>
+
+<p>Thats all. Looking forward for your comments on Google+.</p>
+
+                    </section>
+                </article>
+            </div>
+        </div>
+
+        <div class="row li-author">
+    <div class="sixteen columns">
+        Written by <strong></strong>
+    </div>
+</div>
+
+
+        <div class="row li-pagination">
+            <div class="eight columns">
+                <div class="li-pagination-previous">
+                    
+                        &nbsp;
+                    
+                </div>
+            </div>
+            <div class="eight columns">
+                <div class="li-pagination-next">
+                    
+                        Older article<br />
+                        <a href="https://diyan.github.io/posts/2015/summary_of_passed_2014/"> Summary of passed 2014 year</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+<footer class="li-page-footer">
+    <div class="container">
+        <div class="row">
+            <div class="sixteen columns">
+                <div class="li-page-footer-legal">
+                    &copy; 2015. All rights reserved. 
+                </div>
+                <div class="li-page-footer-theme">
+                    <span class=""><a href="http://github.com/eliasson/liquorice/">liquorice</a> is a theme for <a href="http://hugo.spf13.com">hugo</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script type="text/javascript">
+    <!--
+    function toggle(id) {
+        var e = document.getElementById(id);
+        e.style.display == 'block' ? e.style.display = 'none' : e.style.display = 'block';
+    }
+    
+    </script>
+    <script type="text/javascript">
+    <!--
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', "UA-1258112-3"]);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    -->
+    </script>
+    </body>
+</html>
+
