@@ -1,0 +1,405 @@
+<!--
+Google IO 2012 HTML5 Slide Template
+
+Authors: Eric Bidelman <ebidel@gmail.com>
+         Luke Mahe <lukem@google.com>
+
+URL: https://code.google.com/p/io-2012-slides
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Google IO 2012</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+  <!--This one seems to work all the time, but really small on ipad-->
+  <!--<meta name="viewport" content="initial-scale=0.4">-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="stylesheet" media="all" href="theme/css/default.css">
+  <link rel="stylesheet" media="all" href="theme/css/app.css">
+  <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+  <script data-main="js/slides" src="js/require-1.0.8.min.js"></script>
+  <style type="text/css">
+  pre {
+    background-color: #f5fcff;
+  }
+  </style>
+</head>
+<body style="opacity: 0">
+
+<slides class="layout-widescreen">
+<!-- <slides class=""> -->
+
+<!-- <slide class="logoslide nobackground">
+  <article class="flexbox vcenter">
+    <span><img src="images/google_developers_logo.png"></span>
+  </article>
+</slide>
+ -->
+<slide class="title-slide segue nobackground">
+  <aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside>
+  <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
+  <hgroup class="auto-fadein">
+    <h1 data-config-title><!-- populated from slide_config.json --></h1>
+    <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
+    <p data-config-presenter><!-- populated from slide_config.json --></p>
+  </hgroup>
+</slide>
+
+
+<slide  >
+  
+    <hgroup>
+      <h2>O себе</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p><b>Официальная версия</b></p>
+<ul>
+<li>Старший .NET/Python разработчик в компании <a href="http://www.dev-pro.net/">Dev-Pro.net</a></li>
+<li>Увлеченный программист, автоматизатор, вечно занятый поиском удобных инструментов и серебряной пули</li>
+<li>Промышляю архитектурами приложений и сопровождением высоконагруженных систем</li>
+</ul>
+<p><b>Неофициальная версия</b></p>
+<ul>
+<li>ZX Basic -&gt; C -&gt; Assembler -&gt; C++ -&gt; C# -&gt; Python / JavaScript</li>
+<li>Надоел .NET / Microsoft</li>
+<li>Никогда не любил JavaScript, но похоже что придется</li>
+<li>Фанатею от Python. Python спасет мир! =)</li>
+<li>Немного dba, qa, team lead, devs mentor, sysadmin</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>План доклада</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>По-быстрому сделать обзор БД миграторов в .NET стеке</li>
+<li><strike>&nbsp;Ненавязчиво&nbsp;</strike> продать RoundhousE аудитории</li>
+<li>Ответить на вопросы</li>
+<li>Попить чайку c печеньками на coffee break</li>
+<li>Послушать второй доклад</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Ну очень краткий обзор миграторов</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li><a href="https://github.com/HeadspringLabs/Tarantino">Tarantino</a>, MIT license, 2012-12, SQL-based</li>
+<li><a href="https://github.com/jpoehls/dotnetmigrations/">DotNetMigrations</a>, BSD, 2011-08, SQL</li>
+<li><a href="http://dbdeploy.com/">DBDeploy.NET</a>, LGPL, 2007-09, SQL</li>
+<li><a href="http://www.tewari.info/dbupdater/">DbUpdater</a>, GPL, 2009-01, SQL</li>
+<li><a href="https://code.google.com/p/migratordotnet/">Migrator.NET</a>, MPL, 2009-02, .NET DSL</li>
+<li><a href="https://code.google.com/p/ecm7migrator/">ECM7.Migrator</a>, MIT, 2012-10, .NET DSL (Migrator.NET fork)</li>
+<li><a href="http://dbrefactor.csharpus.com/">DbRefactor</a>, MPL, 2009-07, .NET DSL (Migrator.NET fork)</li>
+<li><a href="https://github.com/schambers/fluentmigrator/">FluentMigrator</a>, Apache, .NET DSL</li>
+<li><a href="http://guides.rubyonrails.org/migrations.html">Active Record Migrations</a>, MIT, 2013-03, Ruby DSL (часть RoR)</li>
+<li><a href="https://code.google.com/p/octalforty-wizardby/">octalforty Wizardby</a>, MIT, 2011-04, text-based DSL</li>
+<li><a href="http://www.liquibase.org/">LiquiBase</a>, Apache, 2012-05, <s>&nbsp;enterprised&nbsp;</s> XML-based DSL</li>
+<li><a href="http://www.red-gate.com/products/sql-development/sql-source-control/">RedGate SQL Source Control</a>, Commercial, SQL diff tool на стероидах (часть SQL Developer Bundle)</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>RoundhousE</h2>
+      <h3>Инструмент для версионирования схемы базы данных</h3>
+    </hgroup>
+    <article ><ul>
+<li><b>Name</b>: RoundhousE</li>
+<li><b>Email</b>: <a href="mailto:chucknorrisframework@googlegroups.com">chucknorrisframework@googlegroups.com</a></li>
+<li><b>Location</b>: Чак Норрис, он везде</li>
+<li><b>Project</b>: <a href="https://github.com/chucknorris/roundhouse">https://github.com/chucknorris/roundhouse</a></li>
+<li><b>Docs</b>: <a href="https://github.com/chucknorris/roundhouse/wiki">https://github.com/chucknorris/roundhouse/wiki</a></li>
+<li><b>Mailing list</b>: <a href="http://groups.google.com/group/chucknorrisframework">http://groups.google.com/group/chucknorrisframework</a></li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Основные возможности RoundhousE</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>Поддерживает Microsoft SQL Server 2000/2005/2008, Oracle 9i/10g/11g, MS Access, SQLite</li>
+<li>Поддержку MySQL внес я 2 года назад</li>
+<li>Поддержку PostgreSQL внес Siim Viikman 1 год назад</li>
+<li>Используется старый добрый SQL</li>
+<li>Может работать на legacy базах данных</li>
+<li>Рализована на .NET, использует NHibernate (могу портировать на другую СУБД/ОС за шоколадку)</li>
+<li>Open source, лицензирована под Apache 2.0</li>
+<li>Not a one-person-project</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Уникальные возможности RoundhousE</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li><b>Освобождает от оформления патчей/миграций для stateless скриптов</b></li>
+<li>Все скрипты разделяет на OneTime, AnyTime, Everytime</li>
+<li>Поддерживает скрипты, которые зависят от окружения</li>
+<li>Крайне рекомендована проектам с большим количеством процедур, функций и представлений</li>
+<li>Нет одного каталога со свалкой миграций. Все разложено по полочкам — baseline, up, functions, procedures, functions...</li>
+<li>Подробное логирование процесса миграции БД</li>
+<li>Подробная регистрация успешных и неудачных миграций</li>
+<li>Более дружественна к DBA чем другие SQL-based миграторы</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Недостатки RoundhousE</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>Forward-only миграции. Есть "up" миграции, но нет "down"</li>
+<li>Не умеет мигрировать до указанной версии (только до победного конца)</li>
+<li>Нет графического интерфейса (только консоль, только хардкор)</li>
+<li>Поддержка нескольких СУБД в проекте делается "вручную"</li>
+<li>Работает только под Windows (из-за .NET реализации)</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Процесс миграции схемы БД в RoundhousE</h2>
+      <h3>Информационная стадия</h3>
+    </hgroup>
+    <article ><p>Во время запуска RoundhousE проходит через несколько стадий. Давайте разберемся что происходит во время этих стадий глядя на log-файл.</p>
+<pre data-lang="log">
+Running RoundhousE v0.8.0.5 against <b>(local)</b> - <b>TestRoundhousE</b>.
+Looking in C:\code\roundhouse\code_drop\sample\deployment\..&crarr;
+..\db\SQLServer\TestRoundhousE for scripts to run.
+Please press enter when ready to kick...
+</pre>
+
+<p>NOTE: Совсем не обязательно чтобы база данных TestRoundhousE существовала на MS SQL Server на (local) хосте. Roundhouse создаст ее автоматически.</p></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Создание схемы БД для миграций</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><pre data-lang="log">
+==================================================
+Setup, Backup, Create/Restore/Drop
+==================================================
+Creating TestRoundhousE database on (local) server &crarr;
+if it doesn't exist.
+==================================================
+RoundhousE Structure
+==================================================
+ Running database type specific tasks.
+ Creating RoundhousE schema if it doesn't exist.
+ Creating <b>[Version]</b> table if it doesn't exist.
+ Creating <b>[ScriptsRun]</b> table if it doesn't exist.
+ Creating <b>[ScriptsRunErrors]</b> table if it doesn't exist.
+</pre></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Структура таблиц RoundhousE</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><h3>RoundhousE Version table:</h3>
+
+<ul>
+<li>repository_path (ssh://git@github.com/diyan/pywinrm)</li>
+<li>version (0.8.0.5)</li>
+<li>entry_date, modified_date (of file)</li>
+<li>entered_by (devpro\alexey.diyan)</li>
+</ul>
+<h3>RoundhousE ScriptsRun / ScriptsRunErrors tables:</h3>
+
+<ul>
+<li>version_id (FK to version.id)</li>
+<li>script_name (file name), text_of_script, text_hash</li>
+<li>one_time_script (boolean)</li>
+<li>erroneous_part_of_script</li>
+<li>error_messge</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Начало версионирования схемы БД</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><pre data-lang="log">
+==================================================
+Versioning
+==================================================
+ Attempting to resolve version from C:\code\roundhouse\code_drop&crarr;
+ \sample\deployment\<b>_BuildInfo.xml</b> using <b>//buildInfo/version</b>.
+ Found version 0.8.0.305 from C:\code\roundhouse\code_drop\sample&crarr;
+ \deployment\_BuildInfo.xml.
+ Migrating TestRoundhousE <b>from version 0 to 0.8.0.305</b>.
+ Versioning TestRoundhousE database with version 0.8.0.305 based on&crarr;
+ http://roundhouse.googlecode.com/svn.
+</pre>
+
+<p>Номер версии можно хранить так же и в сборке самого приложения</p>
+<pre data-lang="log">
+ Attempting to resolve <b>assembly file version</b> from C:\code&crarr;
+ \roundhouse\code_drop\RoundhousE\lib\<b>roundhouse.dll</b>. 
+</pre></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Выполнение необратимых "up" скриптов</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><pre data-lang="log">
+Looking for Update scripts in "...\TestRoundhousE\up".
+These should be <b>one time only scripts.</b>
+    Running 0001_CreateTables.sql on (local) - TestRoundhousE.
+    Running 0002_ChangeTable.sql on (local) - TestRoundhousE.
+</pre>
+
+<ul>
+<li>Все "up" скрипты выполняются один и только один раз, поскольку их изменения необратимы</li>
+<li>Обратимые скрипты выполняются когда в них произошли изменения с момента последней миграции</li>
+<li>RoundhousE присматривает за разработчиками, которые любят менять содержимое необратимых скриптов</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Выполнение обратимых скриптов...</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><pre data-lang="log">
+Looking for <b>Run First After Update scripts</b> in "...&crarr;
+\TestRoundhousE\runFirstAfterUp".
+--------------------------------------------------
+Looking for <b>Function scripts</b> in "...\TestRoundhousE\functions".
+    Running ufn_GetDate.sql on (local) - TestRoundhousE.
+--------------------------------------------------
+Looking for <b>View scripts</b> in "...\TestRoundhousE\views".
+    Running vw_Dude.sql on (local) - TestRoundhousE.
+--------------------------------------------------
+Looking for <b>Stored Procedure scripts</b> in "...\TestRoundhousE\sprocs".
+    Running usp_GetDate.sql on (local) - TestRoundhousE.
+    Running usp_SelectTimmy.sql on (local) - TestRoundhousE.
+</pre>
+
+<p>Каталог runFirstAfterUp\ содержит скрипты со структурами, от которых зависят functions/views/sprocs.</p></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>...выполнение обратимых скриптов</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><pre data-lang="log">
+Looking for <b>Permission scripts</b> in "...\TestRoundhousE\permissions".&crarr;
+These scripts <b>will run every time</b>.
+    Running 0001_AppRoles.sql on (local) - TestRoundhousE.
+    Running 0002_AppPermissions.sql on (local) - TestRoundhousE.
+    LOCAL.GrantRobReadWritePermissions.ENV.sql is an environment file.
+<b>We are in the LOCAL environment. This will run based on &crarr;
+this check.</b>
+    Running LOCAL.GrantRobReadWritePermissions.ENV.sql on (local) - &crarr;
+TestRoundhousE.
+    TEST.GrantRobReadWritePermissions.ENV.sql is an environment file.
+<b>We are in the LOCAL environment. This will NOT run based on &crarr;
+this check.</b>
+    Skipped TEST.GrantJohnReadWritePermissions.ENV.sql - &crarr;
+    <b>No changes were found to run.</b>
+</pre></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Отчет после выполнения миграции</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><pre data-lang="log">
+RoundhousE v0.8.0.305 has kicked your database (TestRoundhousE)! &crarr;
+You are now at version 0.8.0.305.&crarr;
+<b>All changes and backups can be found</b> at &crarr;
+"...\TestRoundhousE\(local)\20110607_215437_2015".
+</pre></article>
+ 
+</slide>
+
+
+<slide class="thank-you-slide segue nobackground">
+  <aside class="gdbar right"><img src="images/google_developers_icon_128.png"></aside>
+  <article class="flexbox vleft auto-fadein">
+    <h2>&lt;Thank you&gt;</h2>
+    <p></p>
+  </article>
+  <p class="auto-fadein" data-config-contact>
+    <!-- populated from slide_config.json -->
+  </p>
+</slide>
+
+<!-- <slide class="logoslide dark nobackground">
+  <article class="flexbox vcenter">
+    <span><img src="images/google_developers_logo_white.png"></span>
+  </article>
+</slide> -->
+
+<slide class="backdrop"></slide>
+
+</slides>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1258112-3', 'github.io');
+  ga('send', 'pageview');
+
+</script>
+
+<!--[if IE]>
+  <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+  <script>CFInstall.check({mode: 'overlay'});</script>
+<![endif]-->
+</body>
+</html>
