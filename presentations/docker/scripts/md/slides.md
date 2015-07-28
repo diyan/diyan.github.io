@@ -22,9 +22,9 @@ title: Plan
 - Docker engine, host OS
 - Docker images, guest OS
 - Docker images, official language stacks
-- Docker ecosystem
 - Networking
 - Storage engines
+- Docker ecosystem
 - QA session (it would be nice to have a lot of time here)
 ---
 
@@ -118,8 +118,40 @@ title: Docker images, official language stacks
 NOTE listed versions are taken from site, use bash to find more
 ---
 
-title: Docker ecosystem
-subtitle: Tools that were build for docker engine
+title: Docker engine networking
+
+- docker0 virtual ethernet bridge is used by default
+- 172.17.42.1/16 CIDR by default (bye bye, Dev-Pro Wi-Fi)
+- <b>--bip=192.168.100.1/24</b> in /etc/default/docker to override
+- <b>--dns=, --dns-search=</b> to setup DNS (container's /etc/resolv.conf)
+- <b>--link=</b> to link containers together (container's /etc/hosts)
+- <b>--net=bridge</b> is default, see docker0 above
+- <b>--net=host</b> to use real network from host
+- <b>--net=container:NAME_or_ID</b> to use network from other container
+- <b>--net=none</b> to manually configure network in container
+- <b>-p port:port</b> to let container accept incoming connections
 ---
 
-title: Docker networking
+title: Docker storage engines
+subtitle: Docker chooses a storage driver in this priority order
+
+- <b>aufs</b> is fast, - big files, no mainline Kernel but Ubuntu/Debian
+- <b>overlay(fs)</b> is fast, - big files, "proper" aufs, mainline Kernel 3.18
+- <b>devicemapper</b> is moderate for direct-lvm / slow for loop-lvm, + big files, developed by RedHat
+- <b>btrfs</b> is moderate, + big files, maybe good if you already have btrfs for something else
+- <b>vfs</b> is super slow, not compact (copy on write == just copy), implemented for tests
+
+---
+
+title: Docker ecosystem
+subtitle: Tools that were build for docker engine
+
+- docker-compose
+- boot2docker
+- docker-machine
+- docker-swarm
+- kubernetes
+- consul
+- cadvisor
+- drone ci
+

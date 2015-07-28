@@ -85,9 +85,9 @@ URL: https://code.google.com/p/io-2012-slides
 <li>Docker engine, host OS</li>
 <li>Docker images, guest OS</li>
 <li>Docker images, official language stacks</li>
-<li>Docker ecosystem</li>
 <li>Networking</li>
 <li>Storage engines</li>
+<li>Docker ecosystem</li>
 <li>QA session (it would be nice to have a lot of time here)</li>
 </ul></article>
  
@@ -220,20 +220,56 @@ curl -s https://index.docker.io/v1/repositories/centos/tags \
 <slide  >
   
     <hgroup>
-      <h2>Docker ecosystem</h2>
-      <h3>Tools that were build for docker engine</h3>
+      <h2>Docker engine networking</h2>
+      <h3></h3>
     </hgroup>
-    <article ></article>
+    <article ><ul>
+<li>docker0 virtual ethernet bridge is used by default</li>
+<li>172.17.42.1/16 CIDR by default (bye bye, Dev-Pro Wi-Fi)</li>
+<li><b>--bip=192.168.100.1/24</b> in /etc/default/docker to override</li>
+<li><b>--dns=, --dns-search=</b> to setup DNS (container's /etc/resolv.conf)</li>
+<li><b>--link=</b> to link containers together (container's /etc/hosts)</li>
+<li><b>--net=bridge</b> is default, see docker0 above</li>
+<li><b>--net=host</b> to use real network from host</li>
+<li><b>--net=container:NAME_or_ID</b> to use network from other container</li>
+<li><b>--net=none</b> to manually configure network in container</li>
+<li><b>-p port:port</b> to let container accept incoming connections</li>
+</ul></article>
  
 </slide>
 
 <slide  >
   
     <hgroup>
-      <h2>Docker networking</h2>
-      <h3></h3>
+      <h2>Docker storage engines</h2>
+      <h3>Docker chooses a storage driver in this priority order</h3>
     </hgroup>
-    <article ></article>
+    <article ><ul>
+<li><b>aufs</b> is fast, - big files, no mainline Kernel but Ubuntu/Debian</li>
+<li><b>overlay(fs)</b> is fast, - big files, "proper" aufs, mainline Kernel 3.18</li>
+<li><b>devicemapper</b> is moderate for direct-lvm / slow for loop-lvm, + big files, developed by RedHat</li>
+<li><b>btrfs</b> is moderate, + big files, maybe good if you already have btrfs for something else</li>
+<li><b>vfs</b> is super slow, not compact (copy on write == just copy), implemented for tests</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Docker ecosystem</h2>
+      <h3>Tools that were build for docker engine</h3>
+    </hgroup>
+    <article ><ul>
+<li>docker-compose</li>
+<li>boot2docker</li>
+<li>docker-machine</li>
+<li>docker-swarm</li>
+<li>kubernetes</li>
+<li>consul</li>
+<li>cadvisor</li>
+<li>drone ci</li>
+</ul></article>
  
 </slide>
 
