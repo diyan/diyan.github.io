@@ -62,8 +62,8 @@ title: Docker engine, hosts
 subtitle: Linux distributions that can run Docker engine daemon v1.7
 
 - Linux Kernel 3.10
-- aufs, devicemapper is mainstream
-- btrfs, overlay(fs), vfs is alternative
+- aufs, devicemapper is mainstream at least for now
+- btrfs, overlay(fs) is alternative
 - Ubuntu 12.04 (needs 14.04 kernel)
 - Ubuntu 13.10, Debian 7.7
 - CentOS 7, RHEL 7, Fedora 21, Oracle Linux 6
@@ -143,15 +143,19 @@ subtitle: Docker chooses a storage driver in this priority order
 
 ---
 
-title: Docker ecosystem
-subtitle: Tools that were build for docker engine
+title: Docker ecosystem, part 1
 
-- docker-compose
-- boot2docker
-- docker-machine
-- docker-swarm
-- kubernetes
-- consul
-- cadvisor
-- drone ci
+- Dev tools: Drone.io, Jenkins plugin, Vagrant, ImageLayers, Docker Compose, Boot2Docker, Docker Machine, Packer.io
+- Hosting: Tutum, AWS EC2 Container Service, AWS Beanstalk, Heroku, Azure Docker VM Extension, Google Container Engine
+- Orchestration: OpenStack, Kubernetes, Consul, Mesos/Mesosphere, Rancher, CoreOS, etcd, Docker Swarm
+- Image registry: Docker Hub, Docker Distribution, Docker Registry, Quay.io, CoreOS Enterprise Registry, Artifactory, Bitnami
+- OS: CoreOS, Ubuntu Core, Rancher OS, Project Atomic, VMWare Photon, Windows Nano Server
+- Configuration management: Chef, Puppet, Ansible, SaltStack
+---
 
+title: Docker ecosystem, part 2
+
+- Networking: Pipework, Open vSwitch, Flannel, Weave, Cisco Nexus 1000V, Skydock/SkyDNS, SocketPlane, Pertino
+- Security: Control groups, SELinux, AppArmor (TOMOYO, GRSEC is not clear)
+- Monitoring: CollectD plugin, Sysdig, cAdvisor
+- Future: runC, Open Container Initiative
