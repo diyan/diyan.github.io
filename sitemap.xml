@@ -3,8 +3,13 @@
   
   <url>
     <loc>https://diyan.github.io/</loc>
-    <lastmod>2015-01-15T00:17:33+02:00</lastmod>
+    <lastmod>2015-11-02T02:49:05+02:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://diyan.github.io/posts/2015/all_pythons_in_docker/</loc>
+    <lastmod>2015-11-02T02:49:05+02:00</lastmod>
   </url>
   
   <url>

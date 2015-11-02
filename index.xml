@@ -7,7 +7,75 @@
     <language>en-us</language>
     
     
-    <updated>Thu, 15 Jan 2015 00:17:33 EET</updated>
+    <updated>Mon, 02 Nov 2015 02:49:05 EET</updated>
+    
+    <item>
+      <title>Two ways to setup all Python versions in Docker image</title>
+      <link>https://diyan.github.io/posts/2015/all_pythons_in_docker/</link>
+      <pubDate>Mon, 02 Nov 2015 02:49:05 EET</pubDate>
+      
+      <guid>https://diyan.github.io/posts/2015/all_pythons_in_docker/</guid>
+      <description>
+
+&lt;p&gt;I&amp;rsquo;m using Travis CI to run &lt;code&gt;pywinrm&lt;/code&gt; tests for different Python versions but only Python 2.7 is used for development at my workstation.&lt;/p&gt;
+
+&lt;p&gt;It would be nice if all those tests could be executed locally by me or by contributors, so I did some analysis and sharing my results here.&lt;/p&gt;
+
+&lt;p&gt;Eventually it would be simple command like &lt;code&gt;make.sh test&lt;/code&gt; that will build Docker image and run all tests.&lt;/p&gt;
+
+&lt;p&gt;In most cases I&amp;rsquo;m prefer to use &lt;code&gt;debian:jessie&lt;/code&gt; because it&amp;rsquo;s a base for a majority of official images; but here I will go with Ubuntu image.&lt;/p&gt;
+
+&lt;h2 id=&#34;toc_0&#34;&gt;Precompiled packages from Deadsnakes Ubuntu PPA&lt;/h2&gt;
+
+&lt;p&gt;Image virtual size is 327 MB&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-Dockerfile&#34;&gt;FROM ubuntu:14.04
+MAINTAINER Alexey Diyan &amp;lt;alexey.diyan@gmail.com&amp;gt;
+
+RUN set -x \
+    &amp;amp;&amp;amp; pythonVersions=&#39;python2.6 python2.7 python3.1 python3.2 python3.3 python3.4 python3.5&#39; \
+    &amp;amp;&amp;amp; apt-get update \
+    &amp;amp;&amp;amp; apt-get install -y --no-install-recommends software-properties-common \
+    &amp;amp;&amp;amp; apt-add-repository -y ppa:fkrull/deadsnakes \
+    &amp;amp;&amp;amp; apt-get update \
+    &amp;amp;&amp;amp; apt-get install -y --no-install-recommends $pythonVersions \
+    &amp;amp;&amp;amp; apt-get purge -y --auto-remove software-properties-common \
+    &amp;amp;&amp;amp; rm -rf /var/lib/apt/lists/*
+
+CMD bash
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;toc_1&#34;&gt;Compile from source using pyenv tool&lt;/h2&gt;
+
+&lt;p&gt;Image virtual size is 1.034 GB&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-Dockerfile&#34;&gt;FROM debian:jessie
+MAINTAINER Alexey Diyan &amp;lt;alexey.diyan@gmail.com&amp;gt;
+
+ENV PATH /root/.pyenv/shims:/root/.pyenv/bin:$PATH
+RUN set -x \
+    &amp;amp;&amp;amp; pythonVersions=&#39;2.6.9 2.7.10 3.1.5 3.2.6 3.3.6 3.4.3 3.5.0&#39; \
+    &amp;amp;&amp;amp; buildDeps=&#39;ca-certificates curl git libjpeg-dev build-essential make libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev&#39; \
+    &amp;amp;&amp;amp; apt-get update \
+    &amp;amp;&amp;amp; apt-get install --no-install-recommends -y $buildDeps \
+    &amp;amp;&amp;amp; curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash \
+    &amp;amp;&amp;amp; echo $pythonVersions | xargs -n 1 pyenv install \
+    &amp;amp;&amp;amp; apt-get purge -y --auto-remove $buildDeps \
+    &amp;amp;&amp;amp; rm -rf /var/lib/apt/lists/*
+
+CMD bash
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;toc_2&#34;&gt;In addition..&lt;/h2&gt;
+
+&lt;p&gt;Also, I have tried to build image based on &lt;code&gt;alpine:3.2&lt;/code&gt;, just for fun.&lt;/p&gt;
+
+&lt;p&gt;Compilation did work for Python versions 2.7.10, 3.3.6, 3.4.3, 3.5.0 which is good.&lt;/p&gt;
+
+&lt;p&gt;Unfortunately, I have not managed to build following versions - 2.6.9, 3.1.5, 3.2.6; compilation was failed for both GCC and Clang compilers.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>On Virtual DOM, FRP, Hyperscript</title>
